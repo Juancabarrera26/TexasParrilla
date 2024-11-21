@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
         <h1>Añadir Nuevo Producto</h1>
     </header>
     <main>
-        <form>
+        <form id="formAgregarProducto">
             <label for="name">Nombre del Producto:</label>
             <input type="text" id="name" name="name" required>
 
@@ -25,5 +25,28 @@
         </form>
         <a href="menu.html" class="btn-primary">Volver al Menú</a>
     </main>
+
+    <script>
+        // Función para guardar el nuevo producto
+        function guardarProducto(nombre, cantidad, unidad) {
+            const producto = { nombre, cantidad, unidad };
+            let productos = JSON.parse(localStorage.getItem('productos')) || [];
+            productos.push(producto);
+            localStorage.setItem('productos', JSON.stringify(productos));
+        }
+
+        // Evento al enviar el formulario
+        document.getElementById('formAgregarProducto').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('name').value;
+            const cantidad = document.getElementById('quantity').value;
+            const unidad = document.getElementById('unit').value;
+
+            guardarProducto(nombre, cantidad, unidad);
+
+            alert('Producto agregado con éxito');
+            document.getElementById('formAgregarProducto').reset(); // Limpiar el formulario
+        });
+    </script>
 </body>
 </html>

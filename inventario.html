@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,28 +20,46 @@
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Carne</td>
-                    <td>5</td>
-                    <td>kg</td>
-                    <td>
-                        <button class="btn edit">Editar</button>
-                        <button class="btn delete">Eliminar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tomate</td>
-                    <td>10</td>
-                    <td>kg</td>
-                    <td>
-                        <button class="btn edit">Editar</button>
-                        <button class="btn delete">Eliminar</button>
-                    </td>
-                </tr>
+            <tbody id="productosTabla">
+                <!-- Aquí se llenarán los productos desde localStorage -->
             </tbody>
         </table>
         <a href="menu.html" class="btn-primary">Volver al Menú</a>
     </main>
+
+    <script>
+        // Función para cargar y mostrar los productos en la tabla
+        function mostrarInventario() {
+            const productos = JSON.parse(localStorage.getItem('productos')) || [];
+            const tabla = document.getElementById('productosTabla');
+            tabla.innerHTML = ''; // Limpiar tabla
+
+            productos.forEach(producto => {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                    <td>${producto.nombre}</td>
+                    <td>${producto.cantidad}</td>
+                    <td>${producto.unidad}</td>
+                    <td>
+                        <button class="btn edit">Editar</button>
+                        <button class="btn delete" onclick="eliminarProducto('${producto.nombre}')">Eliminar</button>
+                    </td>
+                `;
+                tabla.appendChild(fila);
+            });
+        }
+
+        // Función para eliminar un producto
+        function eliminarProducto(nombre) {
+            let productos = JSON.parse(localStorage.getItem('productos')) || [];
+            productos = productos.filter(producto => producto.nombre !== nombre);
+            localStorage.setItem('productos', JSON.stringify(productos));
+
+            mostrarInventario(); // Actualizar inventario después de eliminar
+        }
+
+        // Cargar inventario al cargar la página
+        window.onload = mostrarInventario;
+    </script>
 </body>
 </html>
