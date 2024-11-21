@@ -1,0 +1,158 @@
+/* Estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Georgia', serif;
+}
+
+header {
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #c70039;
+    color: white;
+}
+
+header .logo {
+    max-width: 120px;
+    margin: 0 auto;
+    display: block;
+}
+
+.header-home .logo {
+    max-width: 180px;
+}
+
+.title {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+}
+
+/* Estilo de los botones */
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin: 2rem auto;
+    background-color: #ff5733;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #c70039;
+    transform: scale(1.05);
+}
+
+/* Menú principal */
+.main-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px);
+}
+
+.menu-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.menu-options .btn-primary {
+    width: 80%;
+    max-width: 400px;
+}
+
+/* Tabla del inventario */
+.inventory-table {
+    width: 90%;
+    margin: 2rem auto;
+    border-collapse: collapse;
+    background-color: #333;
+    color: #fff;
+}
+
+.inventory-table th, .inventory-table td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #555;
+}
+
+.inventory-table th {
+    background-color: #c70039;
+    color: white;
+}
+
+.inventory-table td {
+    background-color: #444;
+}
+
+.inventory-table .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.inventory-table .btn:hover {
+    background-color: #c70039;
+}
+
+/* Formularios */
+form {
+    width: 90%;
+    max-width: 400px;
+    margin: 2rem auto;
+    background-color: #222;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+}
+
+form button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+form button:hover {
+    background-color: #c70039;
+    transform: scale(1.05);
+}
